@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+fake_history_generator
+
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Build outputs
+dist/
+build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads
+uploads/
+
+# Test coverage
+coverage/
+*.lcov
+
+PRESENTATION_SCRIPT.md
+PROJECT_REPORT.md

@@ -1,0 +1,31 @@
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input.input-with-icon {
+  padding-left: 3.5rem !important;
+}
+
+.input-error {
+  border-color: var(--error) !important;
+}
+
+.input-error-message {
+  display: block;
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-sm);
+}

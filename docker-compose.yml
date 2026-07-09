@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: hotel-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - hotel-network
+
+  server:
+    build: ./server
+    container_name: hotel-server
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - MONGODB_URI=mongodb://mongodb:27017/hotel-management
+      - JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
+      - NODE_ENV=production
+      - CLIENT_URL=http://localhost:5173
+    depends_on:
+      - mongodb
+    networks:
+      - hotel-network
+
+  client:
+    build: ./client
+    container_name: hotel-client
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+    networks:
+      - hotel-network
+
+networks:
+  hotel-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

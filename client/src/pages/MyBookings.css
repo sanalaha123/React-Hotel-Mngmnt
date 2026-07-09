@@ -1,0 +1,123 @@
+.my-bookings-page {
+  padding-top: 100px;
+  padding-bottom: var(--spacing-3xl);
+  min-height: 100vh;
+}
+
+.my-bookings-page h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.no-bookings {
+  text-align: center;
+  padding: var(--spacing-3xl);
+}
+
+.no-bookings h3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.bookings-grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+.booking-card {
+  padding: var(--spacing-xl);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.booking-room-info {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.booking-room-image {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.room-type {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.booking-details {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.detail-icon {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.detail-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.detail-value {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.detail-value.price {
+  color: var(--success);
+  font-size: 1.25rem;
+}
+
+.special-requests {
+  background: var(--surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.special-requests strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.special-requests p {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.btn-cancel {
+  width: 100%;
+  color: var(--error);
+}
+
+.btn-cancel:hover {
+  background: rgba(239, 68, 68, 0.1);
+}

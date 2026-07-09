@@ -1,0 +1,119 @@
+.manage-users {
+  padding-top: 100px;
+  padding-bottom: var(--spacing-3xl);
+  min-height: 100vh;
+}
+
+.users-table-container {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table thead {
+  background: var(--surface-light);
+}
+
+.users-table th,
+.users-table td {
+  padding: var(--spacing-lg);
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.users-table th {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.users-table tbody tr {
+  transition: background var(--transition-fast);
+}
+
+.users-table tbody tr:hover {
+  background: var(--surface-light);
+}
+
+.role-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.role-admin {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--primary-light);
+}
+
+.role-user {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--info);
+}
+
+.btn-toggle-role {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-toggle-role:hover {
+  background: var(--surface-light);
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+}
+
+.btn-delete {
+  color: var(--error);
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+}
+
+.btn-delete:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.no-users {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .users-table-container {
+    overflow-x: auto;
+  }
+  
+  .role-cell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
