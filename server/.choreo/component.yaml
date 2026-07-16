@@ -1,17 +1,10 @@
-# Choreo component descriptor for the Hotel Management backend (Service component).
-# https://wso2.com/choreo/docs/develop-components/develop-services/expose-a-service-with-endpoints/
-schemaVersion: 1.1
-
+schemaVersion: "1.2"
 endpoints:
-  # Expose the whole server at the root so both the REST API (/api/*) and
-  # Socket.IO (/socket.io/*) paths are reachable through the same endpoint.
-  - name: hotel-backend
-    displayName: Hotel Management API
-    service:
-      basePath: /
-      port: 5001
-    # REST covers the JSON API. Socket.IO upgrades over the same port; see
-    # CHOREO_DEPLOYMENT.md for notes on real-time/WebSocket behaviour.
-    type: REST
-    networkVisibilities:
-      - Public
+    - name: hotel-backend
+      displayName: Hotel Management API
+      service:
+        basePath: /
+        port: 5001
+      type: REST
+      networkVisibilities:
+        - Public
