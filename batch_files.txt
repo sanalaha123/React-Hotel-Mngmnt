@@ -1,3 +1,0 @@
-./batch_files.txt
-./server/middleware/auth.js
-./server/config/db.js

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaMapMarkerAlt, FaStar, FaWifi, FaSwimmingPool, FaConciergeBell, FaSearch } from 'react-icons/fa';
+import api from '../utils/api';
 import './HotelList.css';
 
 const HotelList = () => {
@@ -24,7 +24,7 @@ const HotelList = () => {
                 const params = new URLSearchParams();
                 if (city) params.append('city', city);
 
-                const res = await axios.get(`http://localhost:5001/api/hotels?${params.toString()}`);
+                const res = await api.get(`/hotels?${params.toString()}`);
                 if (res.data.success) {
                     setHotels(res.data.data);
                 }

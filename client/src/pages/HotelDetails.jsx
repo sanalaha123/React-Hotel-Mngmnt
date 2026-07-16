@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaStar, FaWifi, FaSwimmingPool, FaConciergeBell, FaCheck, FaParking, FaUtensils, FaDumbbell } from 'react-icons/fa';
 import RoomCard from '../components/rooms/RoomCard'; // Assuming existing RoomCard component
+import api from '../utils/api';
 import './HotelList.css'; // Reuse some list styles or create specific ones
 
 const HotelDetails = () => {
@@ -16,8 +16,8 @@ const HotelDetails = () => {
         const fetchHotelAndRooms = async () => {
             try {
                 const [hotelRes, roomsRes] = await Promise.all([
-                    axios.get(`http://localhost:5001/api/hotels/${id}`),
-                    axios.get(`http://localhost:5001/api/hotels/${id}/rooms`)
+                    api.get(`/hotels/${id}`),
+                    api.get(`/hotels/${id}/rooms`)
                 ]);
 
                 if (hotelRes.data.success) setHotel(hotelRes.data.data);
