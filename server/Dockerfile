@@ -1,4 +1,7 @@
-FROM node:18-alpine
+FROM node:22-alpine
+
+# Patch OS packages (fixes CRITICAL OpenSSL CVEs flagged by Choreo's Trivy scan).
+RUN apk upgrade --no-cache
 
 WORKDIR /app
 
