@@ -22,12 +22,22 @@ import promotionRoutes from './routes/promotions.js';
 import serviceRoutes from './routes/services.js';
 import hotelRoutes from './routes/hotels.js';
 
+// Allowed browser origins. CLIENT_URL may hold one or more comma-separated
+// URLs; trailing slashes are stripped so they match the browser's Origin header.
+const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
+  .split(',')
+  .map((o) => o.trim().replace(/\/$/, ''))
+  .filter(Boolean);
+
+const isAllowedOrigin = (origin) =>
+  !origin || allowedOrigins.includes(origin.replace(/\/$/, ''));
+
 const app = express();
 export { app }; // Export for testing
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
   }
@@ -55,7 +65,7 @@ app.use(cookieParser());
 
 // CORS configuration (Express)
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: (origin, callback) => callback(null, isAllowedOrigin(origin)),
   credentials: true
 }));
 
