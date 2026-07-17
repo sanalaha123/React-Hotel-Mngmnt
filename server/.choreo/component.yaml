@@ -4,7 +4,7 @@ endpoints:
       displayName: Hotel Management API
       service:
         basePath: /
-        port: 5001
+        port: 5005
       type: REST
       networkVisibilities:
         - Public
