@@ -75,6 +75,12 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ success: true, message: 'Server is running' });
 });
 
+// Root health check — Choreo's liveness/scale-to-zero probe hits '/', which
+// would otherwise fall through to the 404 handler and cause a restart loop.
+app.get('/', (req, res) => {
+  res.status(200).json({ success: true, message: 'Hotel Management API is running' });
+});
+
 // Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
