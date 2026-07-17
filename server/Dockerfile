@@ -12,12 +12,12 @@ RUN npm ci --omit=dev
 COPY . .
 
 # Bind to the port declared in .choreo/component.yaml (server.js reads process.env.PORT).
-ENV PORT=5005
+ENV PORT=5000
 
 # Choreo requires containers to run as a non-root user with a UID in [10000, 20000].
 RUN addgroup -g 10014 -S choreo && adduser -u 10014 -S choreo -G choreo
 USER 10014
 
-EXPOSE 5005
+EXPOSE 5000
 
 CMD ["npm", "start"]
