@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { API_BASE_URL } from './config';
 
+// Note: no `withCredentials` — auth uses a Bearer token from localStorage
+// (see request interceptor below), not cookies. Credentialed CORS requires
+// `Access-Control-Allow-Credentials: true`, which Choreo's gateway does not
+// send, so keeping requests non-credentialed lets the gateway CORS succeed.
 const api = axios.create({
   baseURL: API_BASE_URL,
-  withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
   }

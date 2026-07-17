@@ -31,7 +31,6 @@ export const SocketProvider = ({ children }) => {
 
         const socketInstance = io(target, {
             path,
-            withCredentials: true,
             transports: ['websocket', 'polling'],
             reconnectionAttempts: 5
         });
