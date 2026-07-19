@@ -123,10 +123,40 @@ docker-compose down
 ```
 
 - **Client**: http://localhost:5173
-- **Server**: http://localhost:5001
+- **Server**: http://localhost:5000
 - **MongoDB**: localhost:27017
 
 > **Note:** If you make changes to package.json or want fresh builds, always use the `--build` flag.
+
+
+## ☁️ Live Deployment (WSO2 Choreo)
+
+This application is deployed on **WSO2 Choreo** as two components — a React **Web Application** (frontend) and a Dockerized Node/Express **Service** (backend) — with the database on **MongoDB Atlas**.
+
+```
+Browser ──► Choreo Web App (React)  ──►  Choreo Gateway  ──►  Choreo Service (Node/Express)  ──►  MongoDB Atlas
+```
+
+**Live URLs** _(hosted on Choreo's 2-week free trial — may be inactive by the time you read this; the screenshots below are the durable record)_:
+
+- **Frontend:** _add your Choreo Web App URL_
+- **Backend API:** `https://…choreoapis.dev/luxurystay/server/v1.0`
+
+> ℹ️ The entire deployment is **reproducible from this repo** — `server/Dockerfile`, `server/.choreo/component.yaml`, and the runtime config are all committed. Only secrets (`MONGODB_URI`, `JWT_SECRET`) are supplied through Choreo's Configs & Secrets, never checked in.
+
+### Deployment evidence
+
+Since the live trial may expire, these screenshots are the durable record that the deployment worked end to end:
+
+| | |
+|---|---|
+| Choreo project — both components deployed | ![Choreo project overview](docs/screenshots/01-choreo-project-overview.png) |
+| Backend deploy succeeded | ![Backend deploy success](docs/screenshots/02-backend-deploy-success.png) |
+| Backend running (`MongoDB Connected`) | ![Backend runtime logs](docs/screenshots/03-backend-runtime-logs.png) |
+| Configs & Secrets (values masked) | ![Configs and secrets](docs/screenshots/04-configs-secrets.png) |
+| Live app with real data | ![Frontend live](docs/screenshots/05-frontend-live.png) |
+| Registration/login working end to end | ![Login working](docs/screenshots/06-login-working.png) |
+| Scale-to-zero enabled | ![Scale to zero](docs/screenshots/07-scale-to-zero.png) |
 
 
 ## 📱 Usage
